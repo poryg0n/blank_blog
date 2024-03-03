@@ -8,9 +8,9 @@
 <ul style="list-style-type:none;">
 {% for post in object_list %}
 
-<li><a href="{% url '#' post.pk %}">
+<li><a href="{% url 'article-detail' post.pk %}">
 	    <strong>{{ post.title }}</strong></a> - 
-<a href="{% url '#' post.category|slugify %}">{{ post.category }}</a> <br/>
+<a href="{% url 'category' post.category|slugify %}">{{ post.category }}</a> <br/>
 	    {% if post.author.first_name or post.author.last_name %}
             {{ post.author.first_name }} 
             {{ post.author.last_name }} -
@@ -19,7 +19,7 @@
 	{% if user.is_authenticated %}
 	   {% if user.id == post.author.id %}
 
-         	<small><a href={% url 'update-post' post.pk %}>Edit</a></small> - 
+         	<small><a href={% url 'edit-post' post.pk %}>Edit</a></small> - 
          	<small><a href={% url 'delete-post' post.pk %}>Delete</a></small><br/>
          	{% endif %}
         {% endif %}

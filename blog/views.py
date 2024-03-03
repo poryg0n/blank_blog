@@ -14,8 +14,8 @@ def homeblog(request):
 class HomeView(ListView):
     model = Post
     template_name = 'home.html'
-    ordering = ['-id']
-#   ordering = ['-post_date']
+    ordering = ['-post_date','-id']
+#   ordering = ['-id']
 
     def get_context_data(self, *args, **kwargs):
         cat_menu = Category.objects.all()
@@ -42,7 +42,7 @@ class AddPostView(CreateView):
 class UpdatePostView(UpdateView):
     model = Post
     form_class = EditForm
-    template_name = 'update_post.html'
+    template_name = 'edit_post.html'
 #   fields = ['title','title_tag','body']
 
 class DeletePostView(DeleteView):
@@ -59,7 +59,7 @@ class AddCategoryView(CreateView):
 
 class UpdateCategoryView(UpdateView):
     model = Category
-    template_name = 'update_category.html'
+    template_name = 'edit_category.html'
     fields = '__all__'
 
 

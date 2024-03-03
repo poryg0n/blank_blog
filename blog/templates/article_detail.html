@@ -20,7 +20,7 @@ post user : {{ post.author.id }}
 	   <p> {{ post.post_date }}
 	   {% if user.is_authenticated %}
 	      {% if user.id == post.author.id %}
-	      -   <small><a href={% url 'update-post' post.pk %}>Edit</a>
+	      -   <small><a href={% url 'edit-post' post.pk %}>Edit</a>
                 - <a href={% url 'delete-post' post.pk %}>Delete</a> </small>
               {% endif %}
 	   {% endif %}
@@ -77,6 +77,6 @@ post user : {{ post.author.id }}
 	    </div>
 	</div>
 	<br/><br/>
-	<a href="{% url 'home' %}">Retour</a>
+	<a href="{% url 'home' %}">Back</a>
 	<br/><br/>
 {% endblock %}
