@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Configure your user account{% endblock %}
+
+
+{% block content %}
+<h1>Configure your user account</h1>
+    <br/><br/>
+{{ user.profile.bio }}
+<div class="form-group">
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-dark" type="submit">Validate</button>
+</form>
+</div>
+{% endblock %}
